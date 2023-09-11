@@ -1,0 +1,9 @@
+Django
+django-allauth
+django-paypal
+Pillow
+pymysql
+matplotlib
+plotly
+pyserial
+django-crispy-forms
