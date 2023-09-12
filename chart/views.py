@@ -38,11 +38,13 @@ def index( request ):
 	#整合垃圾桶與回收桶的數量資料
 	all_count = pd.concat([t1df2count, t2df2count])
 	
+	type_name = list(all_count.index)
+	a1 = type_name[0]
 	# 長條圖
-	fig = plot([go.Bar(x = ['寶特瓶', '玻璃', '鐵鋁罐' , '紙類', '一般'],
+	# ['a1', '寶特瓶', '一般', '紙類', '玻璃']
+	fig = plot([go.Bar(x = type_name ,
             y = all_count),
             ],output_type='div')
-
 	
 	#滿溢程度
 	fulldf = pd.DataFrame(SensorData.objects.all().values())
