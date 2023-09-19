@@ -6,7 +6,6 @@
 <div class="form-container">
     <form method="post">
         {% csrf_token %}
-        
         <div class="form-group">
             <label for="{{ form.name.id_for_label }}">姓名</label>
             {{ form.name }}
@@ -34,12 +33,3 @@
     </form>
 </div>
 {% endblock %}
-{% comment %} {% extends "base.html" %}
-{% block content %}
-<div class="conbar"><h1>聯絡我們</h1></div>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">提交</button>
-</form>
-{% endblock %} {% endcomment %}

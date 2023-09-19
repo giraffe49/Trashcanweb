@@ -76,7 +76,6 @@ class AuthUserUserPermissions(models.Model):
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
 
-
 class DjangoAdminLog(models.Model):
     action_time = models.DateTimeField()
     object_id = models.TextField(blank=True, null=True)
@@ -121,62 +120,11 @@ class DjangoSession(models.Model):
         managed = False
         db_table = 'django_session'
 
-
-class ObjectRecognition(models.Model):
-    result_type = models.IntegerField(blank=True, null=True)
-    confidence = models.FloatField(blank=True, null=True)
-    timestamp = models.DateTimeField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'object_recognition'
-
-
-class SensorData0(models.Model):
-    timestamp = models.DateTimeField(blank=True, null=True)
-    distance_value = models.FloatField()
+class ChartUserprofile(models.Model):
+    name = models.CharField(max_length=40)
+    email = models.CharField(max_length=255, blank=True, null=True)
+    content = models.CharField(max_length=100)
 
     class Meta:
         managed = False
-        db_table = 'sensor_data_0'
-        ordering = ['-timestamp']
-
-
-class SensorData1(models.Model):
-    timestamp = models.DateTimeField(blank=True, null=True)
-    distance_value = models.FloatField()
-
-    class Meta:
-        managed = False
-        db_table = 'sensor_data_1'
-        ordering = ['-timestamp']
-
-
-class SensorData2(models.Model):
-    timestamp = models.DateTimeField(blank=True, null=True)
-    distance_value = models.FloatField()
-
-    class Meta:
-        managed = False
-        db_table = 'sensor_data_2'
-        ordering = ['-timestamp']
-
-
-class SensorData3(models.Model):
-    timestamp = models.DateTimeField(blank=True, null=True)
-    distance_value = models.FloatField()
-
-    class Meta:
-        managed = False
-        db_table = 'sensor_data_3'
-        ordering = ['-timestamp']
-
-
-class SensorData4(models.Model):
-    timestamp = models.DateTimeField(blank=True, null=True)
-    distance_value = models.FloatField()
-
-    class Meta:
-        managed = False
-        db_table = 'sensor_data_4'
-        ordering = ['-timestamp']
+        db_table = 'chart_userprofile'
