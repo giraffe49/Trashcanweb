@@ -1,0 +1,45 @@
+// defines pins numbers
+const int trigPin = 9;
+const int echoPin = 10;
+// defines variables
+long duration;
+int distance;
+unsigned long previousMillis = 0;  // 存儲上一次測距的時間
+const unsigned long interval = 5000;  // 10秒的時間間隔
+
+void setup() {
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  Serial.begin(9600); // 设置串行通信速率
+}
+
+void loop() {
+  // 读取传感器数据
+  float sensorData = readSensorData();
+  
+  // 发送数据到计算机
+  Serial.print("DATA:");
+  Serial.println(sensorData);
+  
+  delay(10000); // 延遲10秒
+}
+float readSensorData() {
+  // 模拟传感器数据
+  //  float sensorValue = 25.5;  // 例如，这里将传感器值设置为 25.5，你应该根据你的传感器实际读数来设置这个值
+  //  
+  //  unsigned long currentMillis = millis();  // 獲取當前時間
+  //  // 檢查是否過了10秒
+  //  if (currentMillis - previousMillis >= interval) {
+  //    // 更新上一次測距的時間
+  //    previousMillis = currentMillis;
+
+    // 測距程式碼
+    digitalWrite(trigPin, LOW);
+    delayMicroseconds(200);
+    digitalWrite(trigPin, HIGH);
+    delayMicroseconds(10);
+    digitalWrite(trigPin, LOW);
+    duration = pulseIn(echoPin, HIGH);
+    float sensorValue = duration * 0.034 / 2;
+  return sensorValue;
+}

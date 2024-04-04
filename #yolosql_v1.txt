@@ -1,0 +1,39 @@
+#可讀取資料夾中的txt檔案並將信心值最高者存入sql
+import os
+import mysql.connector
+from datetime import datetime
+i=0
+folder_path = f'exp{i}/labels'  # 資料夾路徑
+txt_files = [f for f in os.listdir(folder_path) if f.endswith('.txt')]
+
+best_result = None
+
+for txt_file in txt_files:
+    with open(os.path.join(folder_path, txt_file), 'r') as file:
+        line = file.readline().strip().split()
+        
+        if len(line) == 5:
+            result_type = int(line[0])
+            confidence = float(line[4])
+            
+            if result_type == 5 and (best_result is None or confidence > best_result[1]):
+                best_result = (line, confidence)
+
+# 連接到MySQL資料庫
+conn = mysql.connector.connect(
+    host='trashcan.mysql.database.azure.com',
+    port = 3306,
+    user='trashcanweb',
+    password='Cxb4991mysql',
+    database='protest'
+)
+cursor = conn.cursor()
+
+if best_result:
+    sql = "INSERT INTO object_recognition (result_type, confidence) VALUES (%s, %s)"
+    data = (best_result[0][0], best_result[1])  # 將 result_type 和 confidence 插入資料庫
+    cursor.execute(sql, data)
+    conn.commit()
+
+# 關閉資料庫連接
+conn.close()

@@ -1,0 +1,20 @@
+cmd連線mysql
+mysql -h trashcan.mysql.database.azure.com -u trashcanweb -p
+輸入密碼:Cxb4991mysql
+USE protest;
+SELECT * FROM object_recognition;
+truncate table sensor_data_0;
+INSERT INTO sensor_data_0 (timestamp,distance_value)
+  VALUES (CURRENT_TIMESTAMP,"20");
+
+python 連線 mysql
+'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'protest',
+    'USER': 'trashcanweb',  
+    'PASSWORD': 'Cxb4991mysql',  
+    'HOST': 'trashcan.mysql.database.azure.com',
+    'PORT': '3306',
+}
+
+網址2:https://easysort.giraffe49.repl.co/

@@ -1,0 +1,173 @@
+<html>
+    <head>
+        <title>隨手丟!智慧垃圾桶</title>
+        <style>
+            .navbar {
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center; 
+                background-color: #fff; 
+                color: #4A645F; 
+                padding: 10px 20px; 
+                height: 60px;
+            }
+            .navbar a { 
+                color: #4A645F; 
+                text-decoration: none; 
+                margin: 0 15px; 
+            }
+            .navbar a:hover {
+                text-decoration: underline; 
+            }
+            .conbar {
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                background-color: #f0f0f0; 
+                color: #4A645F;
+                padding: 10px 20px; 
+                height: 60px;
+            }
+            .cen {
+                justify-content: center; 
+            }
+            .form-container {
+                text-align: center;
+            }
+        
+            .form-group {
+                /*margin: 10px;*/
+                display: flex; /* 使用 flex 布局 */
+                flex-direction: row; /* 垂直排列元素 */
+                align-items: center; /* 在垂直方向上居中对齐元素 */
+                justify-content: center; /* 在水平方向上居中对齐元素 */
+                margin: 10px 0;
+            }
+        
+            .form-group label {
+                display: inline-block;
+                width: 100px; /* 调整标签宽度 */
+                height: 40px;
+            }
+        
+            .form-group input {
+                width: 400px;
+                height: 40px;
+                padding: 10px; /* 增加内边距，使输入框看起来更宽松 */
+                border: 1px solid #ccc; /* 添加边框 */
+                border-radius: 20px; /* 圆角边框 */
+                font-size: 16px; /* 字体大小 */
+            }
+        
+            .form-group textarea {
+                width: 400px;
+                height: 100px;
+                padding: 10px; /* 增加内边距，使输入框看起来更宽松 */
+                border: 1px solid #ccc; /* 添加边框 */
+                border-radius: 20px; /* 圆角边框 */
+                font-size: 16px; /* 字体大小 */
+            }
+
+            .custom-textarea {
+                width: 400px; /* 调整文本框宽度 */
+                height: 100px; /* 调整文本框高度 */
+                /* 添加其他样式属性 */
+            }
+
+            .colorback {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #F0F0F0;
+                padding: 20px 0px;
+                width: 600px;
+                height: 300px; /* 设置高度以适应内容 */
+                margin: 0 auto;
+                border-radius: 20px;
+                position: absolute; /* 添加定位属性 */
+                top: 50%; /* 将元素的顶部与父元素中央对齐 */
+                left: 50%; /* 将元素的左边缘与父元素中央对齐 */
+                transform: translate(-50%, -50%); /* 通过位移来水平和垂直居中 */
+            }
+
+            .backimg{
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                padding-top: 100px;
+                width:100%;
+                height:450px;
+                background-image: url("https://i.imgur.com/bjER35Q.png");
+                position: relative; /* 添加定位属性 */
+            }
+
+            .circle{
+                --width: 200px;
+                --percent: 50;
+                --deg: calc(360deg * calc(var(--percent) / 100));
+                width: var(--width);
+                height: var(--width);
+                border-radius: 60%;
+                margin: 0px auto;
+                background-image: conic-gradient(red var(--deg), #ccc var(--deg));
+                position: relative;
+            }
+
+            .circlefull{
+                --width: 200px;
+                --percent: 50;
+                --deg: calc(360deg * calc(var(--percent) / 100));
+                width: var(--width);
+                height: var(--width);
+                border-radius: 60%;
+                margin: 0px auto;
+                background-image: conic-gradient(#408080 var(--deg), #ccc var(--deg));
+                position: relative;
+            }
+
+            .circle-inside{
+                --bar-width: 30px;
+                position: absolute;
+                display: flex;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background: #eee;
+                width: calc(var(--width) - var(--bar-width));
+                height: calc(var(--width) - var(--bar-width));
+                align-items: center;
+                justify-content: center;
+                font-size: 32px;
+            }
+
+            .video-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* 为了在页面垂直方向上居中 */
+            }
+
+            .video-container iframe {
+                width: 560px;
+                height: 315px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <div>
+                <img src="https://i.imgur.com/E45YylA.png" width="90" height="100" alt="圖片載入失敗">
+                {% comment %} <img src="https://i.imgur.com/eDrufx2.png" width="90" height="80" alt="圖片載入失敗"> {% endcomment %}
+            </div>
+            <div>
+                <a href="/">首頁</a>
+                <a href="/about">關於我們</a>
+                <a href="/contact">聯絡我們</a>
+            </div>
+        </div>
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+    </body>
+</html>

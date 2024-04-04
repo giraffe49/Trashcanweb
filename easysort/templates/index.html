@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="conbar"><h1>累積數量</h1></div>
+<div>
+{% autoescape off %}
+{{ fig }}
+{% endautoescape %}
+</div>
+<div>
+    <div class="conbar"><h1>滿溢度</h1></div>
+        {% comment %} <div style="text-align: center;">
+            {% autoescape off %}
+            <h2>垃圾桶剩餘容量:</h2>
+            <div class="circle" style="--percent: {{ f0_numpre }};">
+                <div class="circle-inside">
+                    {{ f0_numpre }}%
+                </div>
+            </div>
+            {% endautoescape %}
+            {% if f0_num <= 8 %}
+                <h2 style="color:red;">垃圾桶容量不足</h2>
+            {% elif f0_num <= 15 %}
+                <h2 style="color:#FFB630;">垃圾桶容量即將不足</h2>
+            {% else %}
+                <h2>垃圾桶目前容量充足</h2>
+            {% endif %}
+        </div> {% endcomment %}
+    <div style="display: flex; justify-content: center;">
+        <div style="margin: 0 50px; text-align: center;">
+            {% autoescape off %}
+            <h2>鐵鋁罐桶剩餘容量:</h2>
+            {% endautoescape %}
+            {% if f1_num <= 8 %}
+                <div class="circle" style="--percent: {{ f1_numpre }};">
+                    <div class="circle-inside">
+                        {{ f1_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:red;">鐵鋁罐桶容量不足</h2>
+            {% elif f1_num <= 15 %}
+                <div class="circle" style="--percent: {{ f1_numpre }};">
+                    <div class="circle-inside">
+                        {{ f1_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:#FFB630;">鐵鋁罐桶容量即將不足</h2>
+            {% else %}
+                <div class="circlefull" style="--percent: {{ f1_numpre }};">
+                    <div class="circle-inside">
+                        {{ f1_numpre }} %
+                    </div>
+                </div>
+                <h2>鐵鋁罐桶目前容量充足</h2>
+            {% endif %}
+        </div>
+        <div style="margin: 0 50px; text-align: center;">
+            {% autoescape off %}
+            <h2 >玻璃桶剩餘容量:</h2>
+            {% endautoescape %}
+            {% if f2_num <= 8 %}
+                <div class="circle" style="--percent: {{ f2_numpre }};">
+                    <div class="circle-inside">
+                        {{ f2_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:red;">玻璃桶容量不足</h2>
+            {% elif f2_num <= 15 %}
+                <div class="circle" style="--percent: {{ f2_numpre }};">
+                    <div class="circle-inside">
+                        {{ f2_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:#FFB630;">玻璃桶容量即將不足</h2>
+            {% else %}
+                <div class="circlefull" style="--percent: {{ f2_numpre }};">
+                    <div class="circle-inside">
+                        {{ f2_numpre }} %
+                    </div>
+                </div>
+                <h2>玻璃桶目前容量充足</h2>
+            {% endif %}
+        </div>
+        <div style="margin: 0 50px; text-align: center;">
+            {% autoescape off %}
+            <h2 >塑膠桶剩餘容量:</h2>
+            {% endautoescape %}
+            {% if f3_num <= 8 %}
+                <div class="circle" style="--percent: {{ f3_numpre }};">
+                    <div class="circle-inside">
+                        {{ f3_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:red;">塑膠桶容量不足</h2>
+            {% elif f3_num <= 15 %}
+                <div class="circle" style="--percent: {{ f3_numpre }};">
+                    <div class="circle-inside">
+                        {{ f3_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:#FFB630;">塑膠桶容量即將不足</h2>
+            {% else %}
+                <div class="circlefull" style="--percent: {{ f3_numpre }};">
+                    <div class="circle-inside">
+                        {{ f3_numpre }} %
+                    </div>
+                </div>
+                <h2>塑膠桶目前容量充足</h2>
+            {% endif %}
+        </div>
+        <div style="margin: 0 50px; text-align: center;">
+            {% autoescape off %}
+            <h2>紙類桶剩餘容量:</h2>
+            {% endautoescape %}
+            {% if f4_num <= 8 %}
+                <div class="circle" style="--percent: {{ f4_numpre }};">
+                    <div class="circle-inside">
+                        {{ f4_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:red;">紙類桶容量不足</h2>
+            {% elif f4_num <= 15 %}
+                <div class="circle" style="--percent: {{ f4_numpre }};">
+                    <div class="circle-inside">
+                        {{ f4_numpre }} %
+                    </div>
+                </div>
+                <h2 style="color:#FFB630;">紙類桶容量即將不足</h2>
+            {% else %}
+                <div class="circlefull" style="--percent: {{ f4_numpre }};">
+                    <div class="circle-inside">
+                        {{ f4_numpre }} %
+                    </div>
+                </div>
+                <h2>紙類桶目前容量充足</h2>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
